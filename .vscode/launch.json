@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Active File",
+            "type": "lldb",
+            "request": "launch",
+
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+
+            "cwd": "${workspaceFolder}",
+
+            "args": [],
+
+            "terminal": "integrated",
+
+            "preLaunchTask": "Build Active File"
+        }
+    ]
+}
