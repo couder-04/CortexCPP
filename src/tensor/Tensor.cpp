@@ -106,6 +106,18 @@ void Tensor::print_data()const{  // print out the 1D array in order
     std::cout<<"\n";
 }
 
+std::vector<float>& Tensor::raw_data(){
+    return data;// returns a new referernce to the tensor data
+}
+
+const std::vector<float>& Tensor::raw_data() const{
+    return data; // returns a new referernce to the tensor data
+}
+
+// this function just fetches you the shape and cant change the shape vector neither the input
+const std::vector<int>& Tensor::get_shape() const{
+    return shape;
+}
 
 // only reads object
 // const T&

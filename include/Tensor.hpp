@@ -22,6 +22,9 @@ class Tensor{
         float& at (const std::vector<int> &indices);
         const float& at(const std::vector<int>& indices) const;
         void reshape(const std::vector<int> & new_shape);
+        std:: vector<float>&raw_data();// Returns a new referece to the mutable Tensor data
+        const std:: vector<float>&raw_data() const;// Returns a new referece to the non mutable Tensor data
+        const std::vector<int>& get_shape() const;
 };
 
 
