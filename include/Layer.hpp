@@ -10,7 +10,6 @@ class Layer{
 //  = 0 means that its an abstract class now : 
 // An abstract class is a restricted blueprint that cannot be instantiated directly
 // . It acts as a base class, NEEEDS to be inherited surely
-      
         virtual Tensor forward (const Tensor &input)= 0;// fwd pass template
         virtual std:: vector<int> output_shape(const std::vector <int>&input_shape) const =0;// calculates the shape of output tensor
         virtual std:: string name() const =0;// architecture printing
