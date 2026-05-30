@@ -2,6 +2,7 @@
 #include "ReLU.hpp"
 #include "Flatten.hpp"
 #include  "Linear.hpp"
+#include "Softmax.hpp"
 int main(){
     Tensor x({4,3});// tensor object x created
 
@@ -74,6 +75,14 @@ int main(){
     out.print_shape();
     out.print_data();
 
+    std::cout<<"before softmax:\n";
+    z.print_data();
+    std::cout<<"after softmax:\n";
+    softmax soft;
+    std::cout<<soft.name()<<"\n";
+    std::cout<<"Output_shape:\n";
+    std::cout<<soft.output_shape(z.get_shape())[0]<<"\n";
+    soft.forward(z).print_data();
 }
 
 

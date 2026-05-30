@@ -172,7 +172,7 @@ Add:
 70. Transformer blocks
 71. ONNX export
 72. CUDA kernels
-73. Quantization
+73. Quantization & pruning
 74. Mixed precision
 75. Serialization
 
