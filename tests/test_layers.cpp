@@ -89,3 +89,4 @@ int main(){
 // RELU WORKING PERFECT
 // Flatten WORKING PERFECT
 // Linear Layer working PERFECT
+// softmax working PERFECT
