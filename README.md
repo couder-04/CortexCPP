@@ -1,2 +1,2 @@
 # CortexCPP
-A modular deep learning framework in C++ featuring custom tensor runtime, dynamic CNN architecture construction, shape inference, model analysis, and CIFAR-10 training support.
+CortexCPP is a modular deep learning framework built from scratch in C++. It includes a custom tensor engine, dynamic CNN/MLP architecture builder, shape inference system, architecture validation, parameter and FLOPs analysis, forward propagation, training infrastructure, and performance-focused neural network components
