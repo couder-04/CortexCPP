@@ -1,4 +1,10 @@
-🚀 Recommended File Implementation Order
+Here’s the version I’d use for CortexCPP v1, 
+updated for your current structure and the goal of supporting both 
+CNNs and General Neural Networks, while remaining CNN-focused.
+
+🚀 CortexCPP Roadmap (Updated)
+
+⸻
 
 🏗️ Stage 1 — Tensor Foundation
 
@@ -6,204 +12,355 @@
 2. src/tensor/Tensor.cpp
 3. src/tensor/TensorUtils.cpp
 
+Goal
+
+Build a NumPy-like tensor engine:
+
+* shape handling
+* indexing
+* flattening
+* memory layout
+* tensor utilities
+
 ⸻
 
-🧠 Stage 2 — Base Layer Abstraction
+🧠 Stage 2 — Layer Abstraction
 
 4. include/Layer.hpp
 
+Goal
+
+Unified interface:
+
+forward()
+output_shape()
+name()
+
+Every future layer inherits from this.
+
 ⸻
 
-🔥 Stage 3 — Shape Inference Layers (NO forward pass yet)
+🔥 Stage 3 — Shape Inference Layers
+
+CNN Layers
 
 5. include/Conv2D.hpp
 6. src/layers/Conv2D.cpp
-7. include/ReLU.hpp
-8. src/layers/ReLU.cpp
-9. include/MaxPool2D.hpp
-10. src/layers/MaxPool2D.cpp
-11. include/Flatten.hpp
-12. src/layers/Flatten.cpp
-13. include/Linear.hpp
-14. src/layers/Linear.cpp
-15. include/BatchNorm2D.hpp
-16. src/layers/BatchNorm2D.cpp
-17. include/Dropout.hpp
-18. src/layers/Dropout.cpp
-19. include/Softmax.hpp
-20. src/layers/Softmax.cpp
+7. include/MaxPool2D.hpp
+8. src/layers/MaxPool2D.cpp
+9. include/BatchNorm2D.hpp
+10. src/layers/BatchNorm2D.cpp
+
+⸻
+
+Dense Network Layers
+
+11. include/Linear.hpp
+12. src/layers/Linear.cpp
+13. include/BatchNorm1D.hpp
+14. src/layers/BatchNorm1D.cpp
+
+⸻
+
+Common Layers
+
+15. include/ReLU.hpp
+16. src/layers/ReLU.cpp
+17. include/LeakyReLU.hpp
+18. src/layers/LeakyReLU.cpp
+19. include/Sigmoid.hpp
+20. src/layers/Sigmoid.cpp
+21. include/Tanh.hpp
+22. src/layers/Tanh.cpp
+23. include/GELU.hpp
+24. src/layers/GELU.cpp
+25. include/Dropout.hpp
+26. src/layers/Dropout.cpp
+27. include/Flatten.hpp
+28. src/layers/Flatten.cpp
+29. include/Softmax.hpp
+30. src/layers/Softmax.cpp
 
 ⸻
 
 🏛️ Stage 4 — Model Container
 
-21. include/Sequential.hpp
-22. src/models/Sequential.cpp
+31. include/Sequential.hpp
+32. src/models/Sequential.cpp
+
+Goal
+
+Support:
+
+CNNs
+MLPs
+Hybrid Models
 
 ⸻
 
-🧩 Stage 5 — Architecture Validation Engine
+🧩 Stage 5 — Shape Inference Engine
 
-23. include/ShapeInference.hpp
-24. src/analyzer/ShapeInference.cpp
+33. include/ShapeInference.hpp
+34. src/analyzer/ShapeInference.cpp
+
+Example
+
+Input
+(3,32,32)
+Conv2D
+→ (16,32,32)
+MaxPool
+→ (16,16,16)
+Flatten
+→ (4096)
+Linear
+→ (10)
 
 ⸻
 
-🖥️ Stage 6 — Interactive CLI
+🛡️ Stage 6 — Architecture Validation
 
-25. include/Menu.hpp
-26. src/cli/Menu.cpp
-27. include/BuilderCLI.hpp
-28. src/cli/BuilderCLI.cpp
-29. main.cpp
+35. include/ArchitectureValidator.hpp
+36. src/analyzer/ArchitectureValidator.cpp
+
+Detect
+
+Conv after Linear
+Flatten after Softmax
+Channel mismatch
+Invalid dimensions
 
 ⸻
 
-🔬 Stage 7 — Architecture Analyzer
+📊 Stage 7 — Model Analysis
 
-30. include/ArchitectureAnalyzer.hpp
-31. src/analyzer/ArchitectureAnalyzer.cpp
-32. include/FLOPsAnalyzer.hpp
-33. src/analyzer/FLOPsAnalyzer.cpp
-34. include/MemoryAnalyzer.hpp
-35. src/analyzer/MemoryAnalyzer.cpp
-36. include/ReceptiveFieldAnalyzer.hpp
-37. src/analyzer/ReceptiveFieldAnalyzer.cpp
+37. include/ParameterCounter.hpp
+38. src/analyzer/ParameterCounter.cpp
+39. include/ArchitectureAnalyzer.hpp
+40. src/analyzer/ArchitectureAnalyzer.cpp
+41. include/FLOPsAnalyzer.hpp
+42. src/analyzer/FLOPsAnalyzer.cpp
+43. include/MemoryAnalyzer.hpp
+44. src/analyzer/MemoryAnalyzer.cpp
+45. include/ReceptiveFieldAnalyzer.hpp
+46. src/analyzer/ReceptiveFieldAnalyzer.cpp
+47. include/ModelSummary.hpp
+48. src/analyzer/ModelSummary.cpp
+
+⸻
+
+🏭 Stage 8 — Layer Factory
+
+49. include/LayerFactory.hpp
+50. src/factory/LayerFactory.cpp
+51. include/LayerType.hpp
+52. include/ModelType.hpp
+
+Goal
+
+Convert:
+
+relu
+conv 3 16 3
+linear 128
+
+into actual layer objects.
+
+⸻
+
+🖥️ Stage 9 — Interactive Builder
+
+53. include/Menu.hpp
+54. src/cli/Menu.cpp
+55. include/BuilderCLI.hpp
+56. src/cli/BuilderCLI.cpp
+57. main.cpp
+
+User Can
+
+Add layer
+Remove layer
+View architecture
+Analyze architecture
+Export architecture
 
 ⸻
 
 ✅ FIRST MAJOR MILESTONE
 
-At this point your framework should support:
+At this point CortexCPP supports:
 
-* dynamic CNN building
-* shape propagation
-* architecture validation
-* parameter counting
-* FLOPs estimation
-* receptive field analysis
-* CNN quality suggestions
+CNN Design
 
-WITHOUT training yet.
+Conv
+Pool
+BatchNorm
+Flatten
+Linear
 
-This alone is already a strong systems + AI project 🔥
+MLP Design
 
-⸻
+Linear
+ReLU
+GELU
+Dropout
+Softmax
 
-⚡ Stage 8 — Forward Propagation
+Analysis
 
-38. src/layers/ReLU.cpp → add forward()
-39. src/layers/Linear.cpp → add forward()
-40. src/layers/Conv2D.cpp → add forward()
-41. src/layers/MaxPool2D.cpp → add forward()
-42. src/layers/BatchNorm2D.cpp → add forward()
-43. src/layers/Flatten.cpp → add forward()
-44. src/layers/Softmax.cpp → add forward()
+Shape Propagation
+Validation
+Parameter Counting
+FLOPs
+Memory Usage
+Receptive Fields
+Model Summary
 
-⸻
+Without Training
 
-🧪 Stage 9 — Dataset Engine
-
-45. include/CIFAR10Loader.hpp
-46. src/datasets/CIFAR10Loader.cpp
-
-⸻
-
-📉 Stage 10 — Loss Functions
-
-47. include/CrossEntropyLoss.hpp
-48. src/losses/CrossEntropyLoss.cpp
+This alone is a strong systems + AI project.
 
 ⸻
 
-🔥 Stage 11 — Backpropagation
+⚡ Stage 10 — Forward Propagation
 
-49. Update Tensor.hpp → gradients
-50. Update Layer.hpp → backward()
+Add real forward passes:
 
-Then implement backward in:
-
-51. Conv2D.cpp
-52. Linear.cpp
-53. ReLU.cpp
-54. MaxPool2D.cpp
-55. BatchNorm2D.cpp
-
-⸻
-
-⚙️ Stage 12 — Optimizers
-
-56. include/SGD.hpp
-57. src/optim/SGD.cpp
-58. include/Momentum.hpp
-59. src/optim/Momentum.cpp
-60. include/Adam.hpp
-61. src/optim/Adam.cpp
+58. ReLU
+59. LeakyReLU
+60. Sigmoid
+61. Tanh
+62. GELU
+63. Linear
+64. Conv2D
+65. MaxPool2D
+66. BatchNorm1D
+67. BatchNorm2D
+68. Flatten
+69. Softmax
 
 ⸻
 
-🚂 Stage 13 — Training Engine
+🧪 Stage 11 — Dataset Engine
 
-62. Update Sequential.cpp
-63. Update main.cpp
+70. include/CIFAR10Loader.hpp
+71. src/datasets/CIFAR10Loader.cpp
+
+Future:
+
+MNIST
+FashionMNIST
+Custom Image Dataset
+
+⸻
+
+📉 Stage 12 — Loss Functions
+
+72. include/CrossEntropyLoss.hpp
+73. src/losses/CrossEntropyLoss.cpp
+
+Future:
+
+MSELoss
+L1Loss
+HuberLoss
+
+⸻
+
+🔥 Stage 13 — Backpropagation
+
+Update:
+
+74. Tensor.hpp
+75. Layer.hpp
 
 Add:
 
-* training loop
+backward()
+
+Implement backward for:
+
+* Linear
+* ReLU
+* LeakyReLU
+* Sigmoid
+* Tanh
+* GELU
+* Conv2D
+* MaxPool2D
+* BatchNorm
+
+⸻
+
+⚙️ Stage 14 — Optimizers
+
+76. SGD
+77. Momentum
+78. Adam
+
+⸻
+
+🚂 Stage 15 — Training Engine
+
+Add:
+
 * batching
+* epochs
 * optimizer integration
-* loss computation
+* metrics
+* checkpoints
 
 ⸻
 
-🚀 Stage 14 — Performance Engineering
+🚀 Stage 16 — Performance Engineering
 
-64. Optimize Conv2D.cpp
-65. Add OpenMP
-66. Add SIMD
-67. Add memory pooling
-68. Add cache optimization
-
-⸻
-
-🌌 Stage 15 — Advanced Features
-
-69. Residual connections
-70. Transformer blocks
-71. ONNX export
-72. CUDA kernels
-73. Quantization & pruning
-74. Mixed precision
-75. Serialization
+* OpenMP
+* SIMD
+* cache optimization
+* memory pooling
+* Conv2D optimization
 
 ⸻
 
-🏆 Most Important Milestones
+🌌 Stage 17 — Advanced Features
+
+Only after everything above:
+
+* Residual Blocks
+* Serialization
+* ONNX Export
+* CUDA Backend
+* Quantization
+* Mixed Precision
+
+⸻
+
+🏆 Milestones
 
 Milestone	Goal
-Milestone 1	Tensor Engine
-Milestone 2	Shape Inference Engine
-Milestone 3	Interactive CNN Builder
-Milestone 4	Architecture Analyzer
-Milestone 5	Forward Propagation
-Milestone 6	Training Engine
-Milestone 7	Performance Optimization
+1	Tensor Engine
+2	Shape Inference Engine
+3	CNN / MLP Builder
+4	Architecture Analyzer
+5	Forward Propagation
+6	Training Engine
+7	Performance Optimization
 
 ⸻
 
-🔥 MOST IMPORTANT ADVICE
+One important change from the old roadmap
 
-Do NOT rush into:
+I would move:
 
-training CIFAR
+ParameterCounter
+ArchitectureValidator
+ModelSummary
+LayerFactory
 
-Your biggest learning comes from:
+before FLOPs and Memory Analysis.
 
-* tensor systems
-* memory layouts
-* shape propagation
-* CNN internals
-* architecture analysis
-* framework engineering
+These features provide much more value early and make the CLI far more useful. 🚀
 
-That’s the part that makes this project genuinely elite 🚀
+You’re currently around Milestone 2
+ (60–70% complete) since Tensor, Sequential, Conv2D, MaxPool2D, Linear, ReLU, 
+ Flatten, and Softmax already exist.
