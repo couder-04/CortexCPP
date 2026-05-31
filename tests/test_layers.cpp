@@ -90,3 +90,5 @@ int main(){
 // Flatten WORKING PERFECT
 // Linear Layer working PERFECT
 // softmax working PERFECT
+// CONV2D: fwd left
+// maxpool2D: fwd left
