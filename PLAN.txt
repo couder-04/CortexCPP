@@ -1,6 +1,4 @@
-Here’s the version I’d use for CortexCPP v1, 
-updated for your current structure and the goal of supporting both 
-CNNs and General Neural Networks, while remaining CNN-focused.
+Here’s the version I’d use for CortexCPP v1, updated for your current structure and the goal of supporting both CNNs and General Neural Networks, while remaining CNN-focused.
 
 🚀 CortexCPP Roadmap (Updated)
 
@@ -361,6 +359,4 @@ before FLOPs and Memory Analysis.
 
 These features provide much more value early and make the CLI far more useful. 🚀
 
-You’re currently around Milestone 2
- (60–70% complete) since Tensor, Sequential, Conv2D, MaxPool2D, Linear, ReLU, 
- Flatten, and Softmax already exist.
+You’re currently around Milestone 2 (60–70% complete) since Tensor, Sequential, Conv2D, MaxPool2D, Linear, ReLU, Flatten, and Softmax already exist.
