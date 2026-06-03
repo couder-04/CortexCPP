@@ -5,6 +5,7 @@
 // 5. Linear after Conv without Flatten
 // 6. Flatten after Softmax
 
+
 #include "ArchitectureValidator.hpp"
 #include "Sequential.hpp"
 #include "ShapeInference.hpp"
