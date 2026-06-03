@@ -20,7 +20,7 @@ std::vector<int> Flatten ::output_shape(const std::vector<int> &input_shape) con
 }
 
 std:: string Flatten :: name() const {
-    return "FLATTEN";
+    return "flatten";
 }
 
 

@@ -2,14 +2,13 @@
 
 //  we have a VECTOR LAYERS which is a vector of the layer objects
 
-void sequential::add(Layer* layer){
-    layers.push_back(layer);
+void sequential::add(std::unique_ptr<Layer>layer){
+    layers.push_back(std::move(layer));
+    //  std::unique_ptr is move-only.
 }
 
 sequential:: ~sequential(){     // destructor
-    for(auto layer: layers){    // deletes the layer objects from heap one by one
-        delete layer;
-    }
+    // destructor automatically called for unique_ptr objects
 }
 
 void sequential:: print_architecture()const{
@@ -20,9 +19,13 @@ void sequential:: print_architecture()const{
     // calling the name method for each object pointer
 }
 
+const std::vector<std::unique_ptr<Layer>>& sequential::get_layer() const {
+    return layers;
+}
+
 Tensor sequential::forward(const Tensor &input){
     Tensor curr=input;
-    for(auto layer: layers){
+    for(auto& layer: layers){
         curr=layer->forward(curr);// curr is the Tensor that flows across the layers
     }
     return curr;
