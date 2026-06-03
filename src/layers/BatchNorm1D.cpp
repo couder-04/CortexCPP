@@ -9,7 +9,7 @@ std:: string batchnorm1D:: name() const {
 
 std:: vector <int> batchnorm1D:: output_shape(const std:: vector <int> & input_shape) const{
     if(input_shape[0]!= num_features){throw std:: runtime_error("incorrect num_features");}
-    else if(input_shape.size()!=3) {throw std:: runtime_error("incorrect input_shape dimension");}
+    else if(input_shape.size()!=2) {throw std:: runtime_error("incorrect input_shape dimension not 2D");}
     else{return input_shape;}
 }
 

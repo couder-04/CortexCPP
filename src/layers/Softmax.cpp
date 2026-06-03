@@ -9,6 +9,9 @@ std::vector<int> softmax ::output_shape(const std:: vector<int>& input_shape)con
 }
 
 Tensor softmax::forward(const Tensor& input){
+    if(input.get_shape().size()!=1){
+        throw std:: runtime_error("Tensor must be a 1D tensor");
+    }
     Tensor output(input.get_shape());
     float sum=0;
     float max=std::numeric_limits<float>::lowest();
