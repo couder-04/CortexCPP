@@ -54,8 +54,8 @@ Tensor TensorUtils::ones(const std::vector<int>& shape){
 Tensor TensorUtils::random_uniform(const std::vector<int>& shape){
     Tensor out(shape);
     std:: random_device rd;// asks os
-    std:: mt19937 gen(rd); // uses this mt19937 algo to generate the rabndom terms
-    std:: uniform_int_distribution<float>dist(0.0f,1.0f);// distribution generated
+    std:: mt19937 gen(rd()); // uses this mt19937 algo to generate the rabndom terms
+    std:: uniform_real_distribution<float>dist(0.0f,1.0f);// distribution generated
     for(auto& x: out.raw_data()){
         x= dist(gen);   // from this distibution we generate  terms
     }
