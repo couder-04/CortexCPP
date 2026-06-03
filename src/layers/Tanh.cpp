@@ -19,3 +19,6 @@ Tensor TanH:: forward(const Tensor &input){
     }
     return output;
 }
+long long TanH:: parameter_count() const{
+    return 0;
+}

@@ -19,10 +19,14 @@ Tensor softmax::forward(const Tensor& input){
         if(x>max){max=x;}
     }
     for(auto x: input.raw_data()){
-        sum+=exp(x-max);
+     sum+=exp(x-max);
     }
     for(int i=0; i<(int)input.numel(); i++){
         output.raw_data()[i]=exp(input.raw_data()[i]-max)/sum;
     }
     return output;
+}
+
+long long softmax:: parameter_count() const{
+    return 0;
 }

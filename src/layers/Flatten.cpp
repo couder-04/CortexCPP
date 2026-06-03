@@ -22,5 +22,8 @@ std::vector<int> Flatten ::output_shape(const std::vector<int> &input_shape) con
 std:: string Flatten :: name() const {
     return "flatten";
 }
+long long Flatten:: parameter_count() const{
+    return 0;
+}
 
 

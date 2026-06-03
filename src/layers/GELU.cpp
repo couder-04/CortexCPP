@@ -22,4 +22,6 @@ Tensor GELU :: forward(const Tensor &input){
     return output;
 }
 
-
+long long GELU:: parameter_count() const{
+    return 0;
+}

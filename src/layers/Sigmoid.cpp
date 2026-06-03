@@ -20,4 +20,6 @@ Tensor sigmoid:: forward(const Tensor &input){
     return output;
 }
 
-
+long long sigmoid:: parameter_count() const{
+    return 0;
+}

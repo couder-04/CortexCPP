@@ -21,4 +21,6 @@ Tensor ReLU:: forward(const Tensor &input){
     return output;
 }
 
-
+long long ReLU:: parameter_count() const{
+    return 0;
+}

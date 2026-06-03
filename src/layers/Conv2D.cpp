@@ -32,3 +32,7 @@ std::vector<int>  conv2D::output_shape(const std:: vector<int> &input_shape)cons
 Tensor conv2D::forward(const Tensor& input){
     throw std::runtime_error("forward of conv2D not implemented yet");
 }
+
+long long conv2D :: parameter_count() const{
+    return (long long)in_channel*out_channel+ out_channel + kernel_size*kernel_size ;
+}

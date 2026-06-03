@@ -11,8 +11,8 @@ int main(){
     }   
     sequential model;
     // object Flatten created and added, its pointer is passed
-    model.add(new Flatten());
-    model.add(new ReLU());
+    model.add(std::make_unique<Flatten>());
+    model.add(std::make_unique<ReLU>());
     model.print_architecture();
     Tensor y= model.forward(x);
     std::cout<<"Input shape\n";

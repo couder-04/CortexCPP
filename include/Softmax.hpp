@@ -8,4 +8,5 @@ class softmax : public Layer{
         std:: string name() const override;
         Tensor forward(const Tensor& input)override;
         std::vector<int>output_shape(const std::vector<int>& input_shape) const override;
+        long long parameter_count() const override;
 };

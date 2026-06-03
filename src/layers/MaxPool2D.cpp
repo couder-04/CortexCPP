@@ -30,3 +30,7 @@ std:: vector<int> maxpool2D::output_shape(const std::vector<int>&input_shape)con
 Tensor maxpool2D::forward(const Tensor& input){
     throw std:: runtime_error("maxpool2D fwd to be implemented");
 }
+
+long long maxpool2D:: parameter_count() const{
+    return 0;
+}

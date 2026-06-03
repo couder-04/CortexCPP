@@ -11,4 +11,5 @@ class maxpool2D: public Layer {
         std:: string name()const override;
         std::vector<int>output_shape(const std::vector<int>& input_shape)const override;
         Tensor forward(const Tensor& input)override;
+        long long parameter_count() const override;
 };

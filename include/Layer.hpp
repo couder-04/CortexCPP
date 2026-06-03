@@ -11,9 +11,15 @@ class Layer{
 // An abstract class is a restricted blueprint that cannot be instantiated directly
 // . It acts as a base class, NEEEDS to be inherited surely
         virtual Tensor forward (const Tensor &input)= 0;// fwd pass template
+
         virtual std:: vector<int> output_shape(const std::vector <int>&input_shape) const =0;// calculates the shape of output tensor
+
         virtual std:: string name() const =0;// architecture printing
+
+        virtual long long  parameter_count() const =0; // parameter counting
+
         virtual ~ Layer() = default;// use default compiler generated destrcutor
+        
 // When deleting derived neural network layers through Layer pointers, destroy them correctly and safely.
 };
 

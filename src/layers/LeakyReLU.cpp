@@ -24,3 +24,6 @@ Tensor LeakyReLU:: forward(const Tensor &input){
 }
 
 
+long long LeakyReLU :: parameter_count() const{
+    return 0;
+}

@@ -11,5 +11,6 @@ class LeakyReLU: public Layer{
         Tensor forward(const Tensor& input)override;// retunrs a new transformed object
         std::vector<int> output_shape(const std::vector<int>&input_shape)const override;
         //     OVERRIDE MEANS:   "this function overrides a virtual parent function"
+        long long parameter_count() const override;
         std::string name() const override;
 };

@@ -13,6 +13,7 @@ class Linear : public Layer{        //sub class created
         std::string name() const override;      //namee
         std::vector<int> output_shape(const std::vector<int>&input_shape) const override;
         Tensor& get_weights();
+        long long parameter_count() const override;
         Tensor& get_bias();
         // output shape
 };

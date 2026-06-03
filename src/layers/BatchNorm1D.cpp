@@ -16,3 +16,7 @@ std:: vector <int> batchnorm1D:: output_shape(const std:: vector <int> & input_s
 Tensor batchnorm1D::forward(const Tensor& input) {
     throw std:: runtime_error("fwd not implementted");
 }
+
+long long batchnorm1D:: parameter_count() const{
+    return 0;
+}

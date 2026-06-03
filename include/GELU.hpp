@@ -9,4 +9,5 @@ class GELU: public Layer{
         std::vector<int> output_shape(const std::vector<int>&input_shape)const override;
         //     OVERRIDE MEANS:   "this function overrides a virtual parent function"
         std::string name() const override;
+        long long parameter_count() const override;
 };

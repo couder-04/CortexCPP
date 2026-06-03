@@ -14,3 +14,7 @@ std:: vector <int> dropout:: output_shape(const std:: vector <int> & input_shape
 Tensor dropout::forward(const Tensor& input) {
     throw std:: runtime_error("fwd not implementted");
 }
+
+long long dropout:: parameter_count() const{
+    return 0;
+}
