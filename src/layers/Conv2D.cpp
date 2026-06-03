@@ -1,3 +1,15 @@
+
+// Input: 3 channels (RGB image)
+//        ↓
+//     [Filter of shape (3, k, k)]
+//        ↓
+//     Apply convolution across all 3 channels
+//        ↓
+//     Sum the results across channels
+//        ↓
+//     1 output feature map
+
+
 #include "Conv2D.hpp"
 
 std:: string conv2D::name()const{
@@ -34,5 +46,6 @@ Tensor conv2D::forward(const Tensor& input){
 }
 
 long long conv2D :: parameter_count() const{
-    return (long long)in_channel*out_channel+ out_channel + kernel_size*kernel_size ;
+    return (long long)in_channel*out_channel*(kernel_size*kernel_size) + out_channel;
+    // area of one kernel * number of kernels
 }
