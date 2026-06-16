@@ -24,7 +24,7 @@ std::vector<int> Linear ::output_shape(const std::vector<int>&input_shape) const
 }
 
 std::string Linear:: name() const {
-    return "Linear";
+    return "linear";
 }      
 
  Tensor& Linear:: get_weights()  {
