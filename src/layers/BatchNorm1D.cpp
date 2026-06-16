@@ -4,7 +4,7 @@
 batchnorm1D:: batchnorm1D(int num_features): num_features(num_features){}
 
 std:: string batchnorm1D:: name() const {
-    return "batchnorm1D";
+    return "batchnorm1d";
 }
 
 std:: vector <int> batchnorm1D:: output_shape(const std:: vector <int> & input_shape) const{

@@ -3,7 +3,7 @@
 maxpool2D::maxpool2D(int kernel_size, int stride):kernel_size(kernel_size), stride(stride){};
 
 std:: string maxpool2D::name()const{
-    return "maxpool2D";
+    return "maxpool2d";
 }
 
 std:: vector<int> maxpool2D::output_shape(const std::vector<int>&input_shape)const{

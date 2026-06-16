@@ -1,7 +1,7 @@
 #include "ReLU.hpp"
 
 std::string ReLU::name() const{// const means that it doesnt modeify the tensor
-    return "RELU";
+    return "relu";
 }
 
 std::vector<int> ReLU::output_shape(const std::vector<int> &input_shape)const{

@@ -3,7 +3,7 @@
 LeakyReLU:: LeakyReLU(float alpha): alpha(alpha){}
 
 std::string LeakyReLU::name() const{// const means that it doesnt modeify the tensor
-    return "LeakyReLU";
+    return "leakyrelu";
 }
 
 std::vector<int> LeakyReLU::output_shape(const std::vector<int> &input_shape)const{

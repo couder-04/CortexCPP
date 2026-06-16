@@ -4,7 +4,7 @@
 batchnorm2D:: batchnorm2D(int num_features): num_features(num_features){}
 
 std:: string batchnorm2D:: name() const {
-    return "batchnorm2D";
+    return "batchnorm2d";
 }
 
 std:: vector <int> batchnorm2D:: output_shape(const std:: vector <int> & input_shape) const{

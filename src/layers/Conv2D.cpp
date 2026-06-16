@@ -13,7 +13,7 @@
 #include "Conv2D.hpp"
 
 std:: string conv2D::name()const{
-    return "conv2D";
+    return "conv2d";
 }
 conv2D ::conv2D(int in_channel,int out_channel,int kernel_size,int stride,int padding):
 in_channel(in_channel),out_channel(out_channel),kernel_size(kernel_size),stride(stride),padding(padding)

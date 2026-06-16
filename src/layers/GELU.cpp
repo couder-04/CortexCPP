@@ -1,7 +1,7 @@
 #include "GELU.hpp"
 #include  "math.h"
 std::string GELU::name() const{// const means that it doesnt modeify the tensor
-    return "GELU";
+    return "gelu";
 }
 
 std::vector<int> GELU::output_shape(const std::vector<int> &input_shape)const{
