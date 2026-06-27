@@ -5,6 +5,7 @@
 
 class softmax : public Layer{
     public:
+        LayerType type() const override { return LayerType::Softmax; }
         std:: string name() const override;
         Tensor forward(const Tensor& input)override;
         std::vector<int>output_shape(const std::vector<int>& input_shape) const override;

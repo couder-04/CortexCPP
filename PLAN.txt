@@ -120,7 +120,7 @@ Implemented:
 ✓ Architecture printing
 
 ============================================================
-🧩 STAGE 5 — SHAPE INFERENCE ENGINE 🚧 NEXT
+🧩 STAGE 5 — SHAPE INFERENCE ENGINE ✅ DONE
 ============================================================
 
 include/ShapeInference.hpp
@@ -158,7 +158,7 @@ Example:
 → (10)
 
 ============================================================
-🛡️ STAGE 6 — ARCHITECTURE VALIDATION
+🛡️ STAGE 6 — ARCHITECTURE VALIDATION ✅ DONE
 ============================================================
 
 include/ArchitectureValidator.hpp
@@ -176,7 +176,7 @@ Detect:
 • Invalid CNN topology
 
 ============================================================
-📊 STAGE 7 — PARAMETER COUNTER
+📊 STAGE 7 — PARAMETER COUNTER ✅ DONE
 ============================================================
 
 include/ParameterCounter.hpp
@@ -195,7 +195,7 @@ Params = 40970
 Total Params
 
 ============================================================
-📋 STAGE 8 — MODEL SUMMARY
+📋 STAGE 8 — MODEL SUMMARY ✅ DONE
 ============================================================
 
 ADD FILES:
@@ -218,13 +218,16 @@ Linear             (10)            40970
 Total Params: 41418
 
 ============================================================
-🏭 STAGE 9 — LAYER FACTORY
+🏭 STAGE 9 — LAYER FACTORY ✅ DONE
 ============================================================
 
 include/LayerFactory.hpp
 
 src/factory/
 └── LayerFactory.cpp
+
+why we use it
+Readability: It eliminates "magic numbers" (e.g., if (user.role == 2) becomes if (user.role == Role.EDITOR)).
 
 ADD:
 
@@ -457,22 +460,11 @@ Layer Library              ✅
 Activation Library         ✅
 Sequential Model           ✅
 
-Shape Inference Engine     🚧 NEXT
-Architecture Validation    ⏳
-Parameter Counter          ⏳
-Model Summary              ⏳
-Layer Factory              ⏳
+Shape Inference Engine     ✅
+Architecture Validation    ✅
+Parameter Counter          ✅
+Model Summary              ✅
+Layer Factory              ✅
 
 Overall Progress:
 ≈ 75% through Milestone 2
-
-Recommended Next Files:
-
-1. ShapeInference.hpp
-2. ShapeInference.cpp
-
-3. ArchitectureValidator.hpp
-4. ArchitectureValidator.cpp
-
-5. ParameterCounter.hpp
-6. ParameterCounter.cpp

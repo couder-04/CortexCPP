@@ -45,6 +45,15 @@ Tensor conv2D::forward(const Tensor& input){
     throw std::runtime_error("forward of conv2D not implemented yet");
 }
 
+int conv2D::get_in_channels()const{
+    return in_channel;
+}
+int conv2D::get_out_channels()const{
+    return out_channel;
+}
+int conv2D::get_kernel_size()const{
+    return kernel_size;
+}
 long long conv2D :: parameter_count() const{
     return (long long)in_channel*out_channel*(kernel_size*kernel_size) + out_channel;
     // area of one kernel * number of kernels

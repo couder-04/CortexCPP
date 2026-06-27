@@ -53,7 +53,13 @@ Tensor Linear:: forward(const Tensor& input){
     }
     return out;
 }       
+int Linear::get_in_features() const {
+    return in_features;
+}
 
+int Linear::get_out_features() const {
+    return out_features;
+}
 long long Linear :: parameter_count() const{
     return (long long)in_features*out_features+ out_features;
 }

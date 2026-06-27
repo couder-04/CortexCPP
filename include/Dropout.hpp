@@ -11,6 +11,7 @@ class dropout : public Layer{
 
 
     public:
+        LayerType type() const override { return LayerType::Dropout; }
         dropout(float probab);
         std:: string name() const override;
         Tensor forward(const Tensor& input)override;

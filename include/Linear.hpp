@@ -8,6 +8,9 @@ class Linear : public Layer{        //sub class created
         Tensor weights;     //weights tensor
         Tensor bias;        //bias tensor
     public:
+        LayerType type() const override { return LayerType::Linear; }
+        int get_in_features() const;
+        int get_out_features() const;
         Linear(int in_features, int out_features);      //  constructor
         Tensor forward(const Tensor& input) override;   //  output
         std::string name() const override;      //namee

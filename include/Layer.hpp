@@ -1,11 +1,13 @@
 #pragma once
 #include "Tensor.hpp"
+#include "LayerType.hpp"
 #include<string>
 
 // A pure virtual function in C++ is a virtual function declared in a base class that forces all derived classes to provide their own implementation
 
 class Layer{
     public:
+        virtual LayerType type() const = 0;
 //" virtual " means Child classes can Override this function i.e diff layers can have diff fwd passes
 //  = 0 means that its an abstract class now : 
 // An abstract class is a restricted blueprint that cannot be instantiated directly

@@ -4,6 +4,7 @@
 #include <functional>
 class Flatten : public Layer{
     public:
+        LayerType type() const override { return LayerType::Flatten; }
         Tensor forward(const Tensor& input) override;
         // const in the parameter protects the INPUT SHAPE
         //  const outside says that this function cant MODIFY the Flatten object

@@ -18,6 +18,7 @@ class batchnorm2D : public Layer{
 
 
     public:
+        LayerType type() const override { return LayerType::BatchNorm2D; }
         batchnorm2D(int num_featuress);
         std:: string name() const override;
         Tensor forward(const Tensor& input)override;

@@ -7,9 +7,11 @@ class batchnorm1D : public Layer{
     private:
         int num_features;
     public:
+        LayerType type() const override { return LayerType::BatchNorm1D; }
         batchnorm1D(int num_featuress);
         std:: string name() const override;
         Tensor forward(const Tensor& input)override;
         std::vector<int>output_shape(const std::vector<int>& input_shape) const override;
         long long parameter_count() const override;
+        int get_features() const { return num_features; }
 };

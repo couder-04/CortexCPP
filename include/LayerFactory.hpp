@@ -9,10 +9,20 @@
 # pragma once
 # include <memory>
 # include <string>
+# include <vector>
 # include "Layer.hpp"
+# include "LayerType.hpp"
 
 class LayerFactory{
+    private:
+        static std::vector<int> current_shape;
+
     public:
+        static void set_input_shape(const std::vector<int>& shape);
+        static const std::vector<int>& get_current_shape();
+        
         static std:: unique_ptr<Layer>create(const std:: string & cmd);
-        // this function belongs to this class not a particular object  
+        static std:: unique_ptr<Layer>create(LayerType type, const std::string & args = "");
+        
+        static LayerType string_to_type(const std::string & op);
 };
